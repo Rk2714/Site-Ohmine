@@ -8,12 +8,16 @@ export default {
     extend: {
       colors: {
         leather: {
-          DEFAULT: '#8B4513',
-          light: '#D2691E',
-          dark: '#3E2723',
+          DEFAULT: '#1E3A8A', // Indigo Blue (Denim)
+          light: '#60A5FA',   // Light Denim
+          dark: '#172554',    // Deep Indigo
         },
         gold: {
-          foil: '#BF953F',
+          foil: '#F59E0B',    // Mustard/Gold Stitch
+        },
+        accent: {
+          red: '#E11D48',     // Bingata Red
+          yellow: '#FBBF24',  // Bingata Yellow
         }
       },
       fontFamily: {

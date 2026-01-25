@@ -44,7 +44,7 @@ function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center pointer-events-none mix-blend-difference text-white">
       <div className="pointer-events-auto px-6 py-3">
-        <a href="/" className="text-2xl font-serif font-bold tracking-widest hover:opacity-70 transition-opacity">LUXE</a>
+        <a href="/" className="text-2xl font-serif font-bold tracking-widest hover:opacity-70 transition-opacity">Oh!! Mine</a>
       </div>
       <div className="pointer-events-auto bg-white/5 backdrop-blur-sm border border-white/10 px-8 py-4 rounded-full flex gap-8 text-sm font-medium shadow-2xl">
         <a href="/" className="hover:text-leather-light transition-colors tracking-widest uppercase text-xs">Collection</a>

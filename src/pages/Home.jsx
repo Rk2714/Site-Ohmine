@@ -73,8 +73,8 @@ export default function Home() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="text-[12vw] md:text-[9vw] font-serif leading-[0.85] font-bold tracking-tighter mix-blend-difference"
           >
-            TIMELESS<br />
-            <span className="italic font-normal font-serif text-leather-light">TACTILE</span>
+            Oh!! Mine<br />
+            <span className="italic font-normal font-serif text-leather-light text-[6vw]">Original Handmade</span>
           </motion.h1>
           
           <motion.div 
@@ -84,8 +84,9 @@ export default function Home() {
             className="mt-12 flex flex-col items-center"
           >
             <p className="max-w-md text-lg text-gray-200 font-light leading-relaxed tracking-wide font-serif italic">
-              "Touch is the new luxury."<br/>
-              デジタルとアナログの境界線を溶かす、<br/>至高のレザー体験。
+              "Traditional × Denim"<br/>
+              沖縄の伝統を、日常のポケットに。<br/>
+              あなただけの「宝物」を見つけてください。
             </p>
             <motion.a 
               href="#shop"
@@ -191,7 +192,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-6xl md:text-7xl font-serif font-bold text-leather-dark leading-[0.9] mb-12"
               >
-                Honest<br />Materials.
+                Okinawa<br />Spirit.
               </motion.h2>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -200,15 +201,15 @@ export default function Home() {
                 className="prose prose-lg text-gray-500 font-light leading-relaxed mb-12"
               >
                 <p>
-                  画面の中だけの体験に、私たちは少し疲れ始めているのかもしれません。
+                  「Oh!! Mine（オーマイン）」は、沖縄の言葉で「私のもの」という意味を込めた造語です。
                 </p>
                 <p>
-                  LUXE LEATHERが提案するのは、デジタルライフスタイルに寄り添いながらも、
-                  五感に訴えかける「圧倒的な物質感」。
+                  丈夫で色落ちを楽しめるデニム生地に、紅型（びんがた）やミンサー織りといった
+                  沖縄の伝統的な彩りをプラスしました。
                 </p>
                 <p>
-                  イタリアの伝統製法でなめされた革の匂い、手縫いのステッチの凹凸。
-                  それらは、あなたを "今、ここ" に引き戻すアンカー（錨）となります。
+                  一つひとつ、手作りで。
+                  使うほどに味わいが増す、あなただけの相棒をお届けします。
                 </p>
               </motion.div>
               
