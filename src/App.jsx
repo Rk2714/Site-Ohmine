@@ -36,6 +36,8 @@ function CustomCursor() {
 
 import { useCart } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
+import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/Footer';
 
 // Simple Navigation Component
 function Nav() {
@@ -79,6 +81,7 @@ function App() {
           <Route path="/success" element={<Success />} />
         </Routes>
       </AnimatePresence>
+      <Footer />
     </>
   );
 }
