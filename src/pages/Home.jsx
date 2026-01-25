@@ -113,9 +113,9 @@ export default function Home() {
             <span className="text-leather font-bold tracking-[0.3em] uppercase text-xs block mb-4">New Arrivals</span>
             <h2 className="text-6xl font-serif font-bold text-leather-dark">The Catalog</h2>
           </motion.div>
-          <button className="text-xs font-bold uppercase tracking-[0.2em] flex items-center gap-2 border-b border-gray-300 pb-2 hover:border-leather hover:text-leather transition-colors duration-300">
+          <a href="#shop" className="text-xs font-bold uppercase tracking-[0.2em] flex items-center gap-2 border-b border-gray-300 pb-2 hover:border-leather hover:text-leather transition-colors duration-300">
             View All Items <ChevronRight size={14} />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 auto-rows-[350px]">
@@ -146,7 +146,7 @@ export default function Home() {
                     <p className="text-white/80 font-mono text-sm mb-2">{product.priceStr}</p>
                     <h3 className="text-3xl text-white font-serif italic mb-6 leading-none">{product.name}</h3>
                     <div className="flex items-center gap-2 text-white text-xs tracking-widest uppercase border-t border-white/30 pt-4">
-                      <span>View Object</span>
+                      <span>View Detail</span>
                       <ArrowRight size={12} />
                     </div>
                   </div>

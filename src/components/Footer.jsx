@@ -34,13 +34,13 @@ export default function Footer() {
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-leather-dark transition-all"
+                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-leather-dark transition-all duration-300"
               >
                 <Instagram size={20} />
               </a>
               <a 
                 href="mailto:info@ohmine.jp" 
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-leather-dark transition-all"
+                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-leather-dark transition-all duration-300"
               >
                 <Mail size={20} />
               </a>
