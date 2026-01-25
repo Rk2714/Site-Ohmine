@@ -18,7 +18,7 @@ export const products = [
       { user: 'S. Kinjo', rating: 5, text: 'プレゼント用に購入。意味のある柄なので喜ばれました。' }
     ],
     // Local Image in public/images
-    image: '/images/ryukyu-clutch.jpg', 
+    image: '/images/ryukyu-clutch.png', 
     gridClass: 'md:col-span-2 md:row-span-2', // Make it big feature
   },
   {
