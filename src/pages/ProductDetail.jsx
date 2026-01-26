@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Check, Shield, Truck, CreditCard, ShoppingBag, Star, Info, Edit3, AlertCircle, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Check, Shield, Truck, CreditCard, ShoppingBag, Star, Info, Edit3, AlertCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { products } from '../data/products';
 
@@ -15,6 +15,7 @@ export default function ProductDetail() {
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [activeTab, setActiveTab] = useState('details'); 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // For slider
   
   // Monogram State
   const [monogram, setMonogram] = useState('');
@@ -24,6 +25,9 @@ export default function ProductDetail() {
     return <div className="min-h-screen flex items-center justify-center">Product not found</div>;
   }
 
+  // Use images array if available, otherwise fallback to single image
+  const images = product.images || [product.image];
+
   const handleAddToCart = () => {
     addToCart(product, 1, monogram);
   };
@@ -31,6 +35,14 @@ export default function ProductDetail() {
   const handleCheckout = async () => {
     addToCart(product, 1, monogram);
     setIsCartOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
@@ -42,30 +54,66 @@ export default function ProductDetail() {
       </Link>
 
       <div className="grid md:grid-cols-2 gap-12 items-start mb-24">
-        {/* Product Image (Mobile Optimized) */}
-        <div className="relative -mx-4 md:mx-0">
-           <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative aspect-square md:rounded-[3rem] overflow-hidden shadow-sm md:shadow-xl"
-          >
-            <img 
-              src={product.image} 
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
-            {/* Monogram Overlay */}
-            {monogram && (
-              <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 pointer-events-none">
-                 <span className="text-3xl md:text-4xl font-serif font-bold tracking-widest text-gold-foil opacity-90 drop-shadow-md" style={{ fontFamily: 'Times New Roman, serif' }}>
-                   {monogram}
-                 </span>
-              </div>
-            )}
-          </motion.div>
-          <p className="text-center text-[10px] text-gray-400 mt-2 px-4">
+        
+        {/* Product Image Slider */}
+        <div className="relative -mx-4 md:mx-0 select-none">
+           <div className="relative aspect-square md:rounded-[3rem] overflow-hidden shadow-sm md:shadow-xl bg-gray-100">
+             <AnimatePresence mode="wait">
+               <motion.img 
+                 key={currentImageIndex}
+                 src={images[currentImageIndex]} 
+                 alt={product.name}
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                 exit={{ opacity: 0 }}
+                 transition={{ duration: 0.3 }}
+                 className="w-full h-full object-cover absolute inset-0"
+                 // Simple drag for mobile swipe
+                 drag="x"
+                 dragConstraints={{ left: 0, right: 0 }}
+                 dragElastic={0.2}
+                 onDragEnd={(e, { offset, velocity }) => {
+                   const swipe = offset.x;
+                   if (swipe < -50) nextImage();
+                   else if (swipe > 50) prevImage();
+                 }}
+               />
+             </AnimatePresence>
+
+             {/* Monogram Overlay (Only on first image) */}
+             {monogram && currentImageIndex === 0 && (
+               <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 pointer-events-none z-10">
+                  <span className="text-3xl md:text-4xl font-serif font-bold tracking-widest text-gold-foil opacity-90 drop-shadow-md" style={{ fontFamily: 'Times New Roman, serif' }}>
+                    {monogram}
+                  </span>
+               </div>
+             )}
+
+             {/* Slider Controls */}
+             {images.length > 1 && (
+               <>
+                 <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition-colors z-20">
+                   <ChevronLeft size={20} />
+                 </button>
+                 <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition-colors z-20">
+                   <ChevronRight size={20} />
+                 </button>
+                 {/* Dots */}
+                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                   {images.map((_, idx) => (
+                     <div 
+                       key={idx} 
+                       className={`w-2 h-2 rounded-full transition-all ${idx === currentImageIndex ? 'bg-leather w-4' : 'bg-white/50'}`} 
+                     />
+                   ))}
+                 </div>
+               </>
+             )}
+           </div>
+           
+           <p className="text-center text-[10px] text-gray-400 mt-2 px-4">
              ※写真はイメージです。手作りのため個体差があります。
-          </p>
+           </p>
         </div>
 
         {/* Product Info */}

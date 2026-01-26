@@ -16,7 +16,13 @@ export const products = [
     reviews: [
       { user: 'E. Higa', rating: 5, text: 'ミンサー柄が可愛くて一目惚れしました。' }
     ],
-    image: '/images/ryukyu-clutch.png', // 先ほど保存した画像
+    image: '/images/ryukyu-clutch.png', 
+    // Multiple images for gallery
+    images: [
+      '/images/ryukyu-clutch.png', // Main
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000', // Detail 1 (Dummy Denim)
+      'https://images.unsplash.com/photo-1605733513597-a8f8341084e6?auto=format&fit=crop&q=80&w=1000'  // Detail 2 (Dummy Texture)
+    ],
     gridClass: 'md:col-span-2 md:row-span-2',
   },
   {
@@ -33,7 +39,11 @@ export const products = [
     ],
     care: '汚れた場合は濡れた布で優しく拭き取ってください。',
     reviews: [],
-    image: '/images/ryukyu-clutch.png', // 画像差し替え推奨
+    image: '/images/ryukyu-clutch.png',
+    images: [
+      '/images/ryukyu-clutch.png',
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+    ],
     gridClass: 'md:col-span-1 md:row-span-1',
   },
   {
@@ -52,7 +62,11 @@ export const products = [
     reviews: [
       { user: 'T. Yamashiro', rating: 4, text: 'シンプルで使いやすいです。' }
     ],
-    image: '/images/ryukyu-clutch.png', // 画像差し替え推奨
+    image: '/images/ryukyu-clutch.png',
+    images: [
+      '/images/ryukyu-clutch.png',
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+    ],
     gridClass: 'md:col-span-1 md:row-span-2',
   },
   {
@@ -69,7 +83,11 @@ export const products = [
     ],
     care: '色移りにご注意ください。',
     reviews: [],
-    image: '/images/ryukyu-clutch.png', // 画像差し替え推奨
+    image: '/images/ryukyu-clutch.png',
+    images: [
+      '/images/ryukyu-clutch.png',
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+    ],
     gridClass: 'md:col-span-1 md:row-span-1',
   },
   {
@@ -88,7 +106,11 @@ export const products = [
     reviews: [
       { user: 'M. Kinjo', rating: 5, text: '母子手帳ケースとして使っています。夫も持てるデザインで良い。' }
     ],
-    image: '/images/ryukyu-clutch.png', // 画像差し替え推奨
+    image: '/images/ryukyu-clutch.png',
+    images: [
+      '/images/ryukyu-clutch.png',
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+    ],
     gridClass: 'md:col-span-2 md:row-span-1',
   },
 ];
