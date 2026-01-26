@@ -53,13 +53,13 @@ html {
 .cursor-dot {
   width: 8px;
   height: 8px;
-  background-color: #8B4513; /* Leather color */
+  background-color: #1E3A8A; /* Indigo color */
 }
 
 .cursor-outline {
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(139, 69, 19, 0.5);
+  border: 1px solid rgba(30, 58, 138, 0.5);
   transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
@@ -68,6 +68,20 @@ body:has(a:hover) .cursor-outline,
 body:has(button:hover) .cursor-outline {
   width: 60px;
   height: 60px;
-  background-color: rgba(139, 69, 19, 0.1);
+  background-color: rgba(30, 58, 138, 0.1); /* Indigo tint */
   border-color: transparent;
+}
+
+/* Mobile Safe Area */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+/* Hide scrollbar for horizontal tabs */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
