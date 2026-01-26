@@ -33,7 +33,7 @@ export default function Legal() {
           </Section>
 
           <Section title="メールアドレス">
-            info@ohmine.jp（仮）
+            ryuyakinjo@gmail.com
           </Section>
 
           <Section title="商品代金以外の必要料金">

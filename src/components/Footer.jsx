@@ -40,7 +40,7 @@ export default function Footer() {
                 <Instagram size={20} />
               </a>
               <a 
-                href="mailto:info@ohmine.jp" 
+                href="mailto:ryuyakinjo@gmail.com" 
                 className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-leather-dark transition-all duration-300"
               >
                 <Mail size={20} />
