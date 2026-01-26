@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import Collection from './pages/Collection'; // Added
+import Legal from './pages/Legal'; // Added
 import Success from './pages/Success';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCart } from './context/CartContext';
@@ -77,9 +78,10 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
-            <Route path="/collection" element={<Collection />} /> {/* Added */}
+            <Route path="/collection" element={<Collection />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/success" element={<Success />} />
+            <Route path="/legal" element={<Legal />} />
           </Routes>
         </AnimatePresence>
       </main>
