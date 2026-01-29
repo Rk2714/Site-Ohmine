@@ -19,6 +19,9 @@ export default async function handler(req, res) {
         clientSecret: paymentIntent.client_secret,
       });
     } catch (err) {
+      console.error("Stripe Error:", err.message);
+      // Log part of the key for debugging (safe)
+      console.log("Using Key ending in:", process.env.STRIPE_SECRET_KEY ? process.env.STRIPE_SECRET_KEY.slice(-4) : "NOT SET");
       res.status(500).json({ statusCode: 500, message: err.message });
     }
   } else {
