@@ -128,10 +128,10 @@ export const products = [
     reviews: [
       { user: 'H. Taira', rating: 5, text: 'カバンにつけるとアクセントになって可愛いです。' }
     ],
-    image: '/images/ohmine/sachet-bowl.jpg',
+    image: '/images/ohmine/sachet-bowl.png',
     images: [
-      '/images/ohmine/sachet-bowl.jpg',
-      '/images/ohmine/sachet-bag.jpg'
+      '/images/ohmine/sachet-bowl.png',
+      '/images/ohmine/sachet-bag.png'
     ],
     gridClass: 'md:col-span-1 md:row-span-1',
   },
