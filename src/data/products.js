@@ -17,11 +17,10 @@ export const products = [
       { user: 'E. Higa', rating: 5, text: 'ミンサー柄が可愛くて一目惚れしました。' }
     ],
     image: '/images/ryukyu-clutch.png', 
-    // Multiple images for gallery
     images: [
-      '/images/ryukyu-clutch.png', // Main
-      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000', // Detail 1 (Dummy Denim)
-      'https://images.unsplash.com/photo-1605733513597-a8f8341084e6?auto=format&fit=crop&q=80&w=1000'  // Detail 2 (Dummy Texture)
+      '/images/ryukyu-clutch.png', 
+      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000', 
+      'https://images.unsplash.com/photo-1605733513597-a8f8341084e6?auto=format&fit=crop&q=80&w=1000'
     ],
     gridClass: 'md:col-span-2 md:row-span-2',
   },
@@ -112,5 +111,28 @@ export const products = [
       'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
     ],
     gridClass: 'md:col-span-2 md:row-span-1',
+  },
+  {
+    id: 6, // New Item
+    name: 'Okinawa Charm Sachet',
+    price: 1500,
+    priceStr: '¥1,500',
+    tagline: '想いを包む、小さなお守り',
+    description: '紅型や絣の端切れを大切に集めて作った、手のひらサイズの巾着袋（サシェ）。中にお清めの塩やポプリを入れてお守りにしたり、バッグチャームとして彩りを添えたり。ひとつひとつ異なる表情をお楽しみください。',
+    details: [
+      '素材: 綿（紅型/絣プリント）、江戸打紐',
+      'サイズ: 約5cm x 7cm',
+      '用途: お守り袋、アクセサリー入れ、バッグチャーム'
+    ],
+    care: '水濡れにより色落ちする場合があります。',
+    reviews: [
+      { user: 'H. Taira', rating: 5, text: 'カバンにつけるとアクセントになって可愛いです。' }
+    ],
+    image: '/images/ohmine/sachet-bowl.jpg',
+    images: [
+      '/images/ohmine/sachet-bowl.jpg',
+      '/images/ohmine/sachet-bag.jpg'
+    ],
+    gridClass: 'md:col-span-1 md:row-span-1',
   },
 ];
