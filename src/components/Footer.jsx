@@ -2,14 +2,20 @@ import React from 'react';
 import { Instagram, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const PaymentIcon = ({ label, children }) => (
+  <div className="h-6 px-2 bg-white rounded flex items-center justify-center text-leather-dark font-bold text-[10px] tracking-tighter" title={label}>
+    {children || label}
+  </div>
+);
+
 export default function Footer() {
   return (
     <footer className="bg-leather-dark text-white/80 py-16 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-12 items-start">
+        <div className="grid md:grid-cols-4 gap-12 items-start">
           
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 md:col-span-1">
             <h3 className="text-2xl font-serif font-bold text-white tracking-widest">Oh!! Mine</h3>
             <p className="text-sm font-light leading-relaxed opacity-70">
               Okinawa Traditional × Denim<br/>
@@ -46,11 +52,31 @@ export default function Footer() {
                 <Mail size={20} />
               </a>
             </div>
-            <p className="text-xs opacity-50 mt-4">
-              © 2026 Oh!! Mine by Yazirusi.<br/>
-              All rights reserved.
+          </div>
+
+          {/* Payments */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-white/50">Payment Methods</h4>
+            <div className="flex flex-wrap gap-2">
+              <PaymentIcon label="VISA">VISA</PaymentIcon>
+              <PaymentIcon label="Mastercard">Master</PaymentIcon>
+              <PaymentIcon label="JCB">JCB</PaymentIcon>
+              <PaymentIcon label="Amex">AMEX</PaymentIcon>
+              <PaymentIcon label="Apple Pay">Pay</PaymentIcon>
+              <PaymentIcon label="Google Pay">GPay</PaymentIcon>
+              <div className="h-6 px-2 bg-[#FF0033] text-white rounded flex items-center justify-center font-bold text-[10px] tracking-tighter opacity-50" title="Coming Soon">
+                PayPay
+              </div>
+            </div>
+            <p className="text-[10px] opacity-50">
+              Secured by Stripe
             </p>
           </div>
+
+        </div>
+        
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-xs opacity-50">
+          <p>© 2026 Oh!! Mine by Yazirusi. All rights reserved.</p>
         </div>
       </div>
     </footer>
