@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import Collection from './pages/Collection'; // Added
 import Legal from './pages/Legal'; // Added
+import About from './pages/About'; // Added
 import Success from './pages/Success';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCart } from './context/CartContext';
@@ -46,11 +47,11 @@ function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center pointer-events-none mix-blend-difference text-white">
       <div className="pointer-events-auto px-6 py-3">
-        <a href="/" className="text-2xl font-serif font-bold tracking-widest hover:opacity-70 transition-opacity">Oh!! Mine</a>
+        <Link to="/" className="text-2xl font-serif font-bold tracking-widest hover:opacity-70 transition-opacity">Oh!! Mine</Link>
       </div>
       <div className="pointer-events-auto bg-white/5 backdrop-blur-sm border border-white/10 px-8 py-4 rounded-full flex gap-8 text-sm font-medium shadow-2xl">
         <Link to="/collection" className="hover:text-leather-light transition-colors tracking-widest uppercase text-xs">Collection</Link>
-        <a href="/#story" className="hover:text-leather-light transition-colors tracking-widest uppercase text-xs">Philosophy</a>
+        <Link to="/about" className="hover:text-leather-light transition-colors tracking-widest uppercase text-xs">Philosophy</Link>
         <span className="text-white/20">|</span>
         <button 
           onClick={() => setIsCartOpen(true)}
@@ -82,6 +83,7 @@ function App() {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/success" element={<Success />} />
             <Route path="/legal" element={<Legal />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </AnimatePresence>
       </main>
