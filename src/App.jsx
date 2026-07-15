@@ -1,89 +1,106 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route, useLocation, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Menu, ShoppingBag, X } from 'lucide-react';
+import About from './pages/About';
+import Collection from './pages/Collection';
 import Home from './pages/Home';
+import Legal from './pages/Legal';
 import ProductDetail from './pages/ProductDetail';
-import Collection from './pages/Collection'; // Added
-import Legal from './pages/Legal'; // Added
-import About from './pages/About'; // Added
+import ShamisenSchool from './pages/ShamisenSchool';
 import Success from './pages/Success';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useCart } from './context/CartContext';
 import CartDrawer from './components/CartDrawer';
-import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import { useCart } from './context/CartContext';
 
-// Custom Cursor Component
-function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+const mainLinks = [
+  { to: '/collection', label: '商品' },
+  { to: '/about', label: '工房について' },
+  { to: '/shamisen', label: '三線教室' },
+  { to: '/legal', label: 'ご利用案内' },
+];
 
-  useEffect(() => {
-    const mouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", mouseMove);
-    return () => window.removeEventListener("mousemove", mouseMove);
-  }, []);
-
-  return (
-    <>
-      <motion.div
-        className="cursor-dot fixed pointer-events-none z-[9999]"
-        animate={{ x: mousePosition.x, y: mousePosition.y }}
-        transition={{ type: "tween", ease: "backOut", duration: 0 }}
-      />
-      <motion.div
-        className="cursor-outline fixed pointer-events-none z-[9998]"
-        animate={{ x: mousePosition.x, y: mousePosition.y }}
-        transition={{ type: "spring", mass: 0.5, stiffness: 100, damping: 15 }}
-      />
-    </>
-  );
-}
-
-// Simple Navigation Component
-function Nav() {
+function Header() {
+  const { pathname } = useLocation();
   const { cartCount, setIsCartOpen } = useCart();
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const onHome = pathname === '/';
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center pointer-events-none mix-blend-difference text-white">
-      <div className="pointer-events-auto px-6 py-3">
-        <Link to="/" className="text-2xl font-serif font-bold tracking-widest hover:opacity-70 transition-opacity">Oh!! Mine</Link>
+    <header
+      className={`site-header ${onHome ? 'site-header--home' : 'site-header--inner'}`}
+    >
+      <div className="site-header__row">
+        <Link to="/" className="site-wordmark" onClick={() => setIsMenuOpen(false)}>
+          Oh!! Mine
+          <span>ISHIGAKI / OKINAWA</span>
+        </Link>
+
+        <nav className="site-nav" aria-label="メインナビゲーション">
+          {mainLinks.map((link) => (
+            <Link key={link.to} to={link.to}>{link.label}</Link>
+          ))}
+          <a href="mailto:ryuyakinjo@gmail.com">お問い合わせ</a>
+        </nav>
+
+        <div className="site-header__actions">
+          <button
+            type="button"
+            className="header-cart"
+            onClick={() => setIsCartOpen(true)}
+            aria-label={`買い物かご、${cartCount}点`}
+          >
+            <ShoppingBag size={17} strokeWidth={1.5} />
+            <span className="header-cart__label">買い物かご</span>
+            <span>{String(cartCount).padStart(2, '0')}</span>
+          </button>
+          <button
+            type="button"
+            className="mobile-menu-button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X size={23} /> : <Menu size={23} />}
+          </button>
+        </div>
       </div>
-      <div className="pointer-events-auto bg-white/5 backdrop-blur-sm border border-white/10 px-8 py-4 rounded-full flex gap-8 text-sm font-medium shadow-2xl">
-        <Link to="/collection" className="hover:text-leather-light transition-colors tracking-widest uppercase text-xs">Collection</Link>
-        <Link to="/about" className="hover:text-leather-light transition-colors tracking-widest uppercase text-xs">Philosophy</Link>
-        <span className="text-white/20">|</span>
-        <button 
-          onClick={() => setIsCartOpen(true)}
-          className="hover:text-leather-light transition-colors tracking-widest uppercase text-xs flex items-center gap-1"
-        >
-          Cart ({cartCount})
-        </button>
-      </div>
-    </nav>
+
+      {isMenuOpen && (
+        <nav className="mobile-nav" aria-label="モバイルナビゲーション">
+          {mainLinks.map((link) => (
+            <Link key={link.to} to={link.to} onClick={() => setIsMenuOpen(false)}>
+              {link.label}
+            </Link>
+          ))}
+          <a href="mailto:ryuyakinjo@gmail.com" onClick={() => setIsMenuOpen(false)}>
+            お問い合わせ
+          </a>
+        </nav>
+      )}
+    </header>
   );
 }
 
-function App() {
+export default function App() {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen bg-[#f2ede3] text-[#1a1a18]">
       <ScrollToTop />
-      <CustomCursor />
       <CartDrawer />
-      <div className="bg-noise" /> {/* Global Noise Overlay */}
-      
-      <Nav />
-      <main className="flex-grow">
+      <Header />
+      <main>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/collection" element={<Collection />} />
             <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/legal" element={<Legal />} />
+            <Route path="/shamisen" element={<ShamisenSchool />} />
             <Route path="/about" element={<About />} />
+            <Route path="/legal" element={<Legal />} />
+            <Route path="/success" element={<Success />} />
           </Routes>
         </AnimatePresence>
       </main>
@@ -91,5 +108,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

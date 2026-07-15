@@ -20,8 +20,8 @@ export const products = [
     image: '/images/products/bag/ryukyu-clutch.png', 
     images: [
       '/images/products/bag/ryukyu-clutch.png', 
-      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000', 
-      'https://images.unsplash.com/photo-1605733513597-a8f8341084e6?auto=format&fit=crop&q=80&w=1000'
+      '/images/ohmine/product-still.png',
+      '/images/ohmine/minsa-products-indigo.png'
     ],
     gridClass: 'md:col-span-2 md:row-span-2',
   },
@@ -40,10 +40,10 @@ export const products = [
     ],
     care: '汚れた場合は濡れた布で優しく拭き取ってください。',
     reviews: [],
-    image: '/images/products/bag/ryukyu-clutch.png', // Temporary fallback
+    image: '/images/ohmine/product-still.png',
     images: [
-      '/images/products/bag/ryukyu-clutch.png',
-      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+      '/images/ohmine/product-still.png',
+      '/images/ohmine/minsa-products-indigo.png'
     ],
     gridClass: 'md:col-span-1 md:row-span-1',
   },
@@ -64,10 +64,10 @@ export const products = [
     reviews: [
       { user: 'T. Yamashiro', rating: 4, text: 'シンプルで使いやすいです。' }
     ],
-    image: '/images/products/bag/ryukyu-clutch.png', // Temporary fallback
+    image: '/images/ohmine/minsa-products-indigo.png',
     images: [
-      '/images/products/bag/ryukyu-clutch.png',
-      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+      '/images/ohmine/minsa-products-indigo.png',
+      '/images/ohmine/product-still.png'
     ],
     gridClass: 'md:col-span-1 md:row-span-2',
   },
@@ -86,10 +86,10 @@ export const products = [
     ],
     care: '色移りにご注意ください。',
     reviews: [],
-    image: '/images/products/bag/ryukyu-clutch.png', // Temporary fallback
+    image: '/images/products/bag/ryukyu-clutch.png',
     images: [
       '/images/products/bag/ryukyu-clutch.png',
-      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+      '/images/ohmine/product-still.png'
     ],
     gridClass: 'md:col-span-1 md:row-span-1',
   },
@@ -110,15 +110,15 @@ export const products = [
     reviews: [
       { user: 'M. Kinjo', rating: 5, text: '母子手帳ケースとして使っています。夫も持てるデザインで良い。' }
     ],
-    image: '/images/products/bag/ryukyu-clutch.png', // Temporary fallback
+    image: '/images/ohmine/product-still.png',
     images: [
-      '/images/products/bag/ryukyu-clutch.png',
-      'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000'
+      '/images/ohmine/product-still.png',
+      '/images/ohmine/minsa-products-indigo.png'
     ],
     gridClass: 'md:col-span-2 md:row-span-1',
   },
   {
-    id: 6, // New Item
+    id: 6,
     name: 'Okinawa Charm Sachet',
     price: 1500,
     priceStr: '¥1,500',

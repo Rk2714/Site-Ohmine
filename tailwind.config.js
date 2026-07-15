@@ -12,6 +12,14 @@ export default {
           light: '#60A5FA',   // Light Denim
           dark: '#172554',    // Deep Indigo
         },
+        shamisen: {
+          DEFAULT: '#C23B22', // Vermilion Red (朱色)
+          light: '#E86850',   // Light Vermilion
+          dark: '#8B1A1A',    // Deep Crimson
+          warm: '#F5A623',    // Warm Gold Accent
+          bg: '#FDF6F0',      // Warm cream background
+          bglight: '#FEF9F5',  // Lighter warm background
+        },
         gold: {
           foil: '#F59E0B',    // Mustard/Gold Stitch
         },
@@ -21,7 +29,8 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['Times New Roman', 'YuMincho', 'Hiragino Mincho ProN', 'serif'],
+        serif: ['Cormorant Garamond', 'Noto Serif JP', 'YuMincho', 'Hiragino Mincho ProN', 'serif'],
+        sans: ['Noto Sans JP', 'system-ui', 'sans-serif'],
       }
     },
   },

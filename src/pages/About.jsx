@@ -1,114 +1,90 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const About = () => {
-  return (
-    <div className="pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto">
-      {/* Hero Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-16"
-      >
-        <h1 className="text-4xl md:text-5xl font-serif text-indigo-900 mb-6">
-          Oh!! Mine
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          沖縄の伝統と、デニムの革新。<br/>
-          二つの青が織りなす、あなただけの物語。
-        </p>
-      </motion.div>
-
-      {/* Story Section 1: The Concept */}
-      <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1000" 
-            alt="Denim texture" 
-            className="rounded-lg shadow-xl w-full h-[400px] object-cover"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h2 className="text-2xl font-serif text-indigo-800 mb-4">
-            「青」へのこだわり
-          </h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            沖縄の空と海を象徴する「琉球藍」と、世界に誇る日本の「岡山デニム」。
-            Oh!! Mineは、この二つの異なる「青」を融合させることから始まりました。
-          </p>
-          <p className="text-gray-600 leading-relaxed">
-            使い込むほどに表情を変えるデニムのエイジングは、まるで人生のよう。
-            あなたの日常に寄り添い、あなただけの色に育ってほしい。そんな願いを込めています。
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Story Section 2: Craftsmanship */}
-      <div className="grid md:grid-cols-2 gap-12 items-center mb-24 md:flex-row-reverse">
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="md:order-2"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?auto=format&fit=crop&q=80&w=1000" 
-            alt="Craftsmanship" 
-            className="rounded-lg shadow-xl w-full h-[400px] object-cover"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="md:order-1"
-        >
-          <h2 className="text-2xl font-serif text-indigo-800 mb-4">
-            手仕事のぬくもり
-          </h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            私たちの製品はすべて、沖縄の工房で職人が一つひとつ手作業で仕立てています。
-            ミンサー織りの繊細な柄合わせや、頑丈なステッチワーク。
-          </p>
-          <p className="text-gray-600 leading-relaxed">
-            大量生産では出せない「味」と「温もり」を大切に。
-            手に取った瞬間、作り手の想いが伝わるようなものづくりを目指しています。
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Value Proposition */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="bg-indigo-50 rounded-2xl p-8 md:p-12 text-center"
-      >
-        <h3 className="text-2xl font-serif text-indigo-900 mb-6">
-          いつ（五）の世（四）までも
-        </h3>
-        <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          ミンサー織りの特徴である五つと四つの市松模様には、「いつの世までも末長く幸せに」という想いが込められています。<br/><br/>
-          Oh!! Mineのアイテムが、あなたと、あなたの大切な人の毎日に、<br/>
-          末永く寄り添う存在でありますように。
-        </p>
-      </motion.div>
-    </div>
-  );
+const reveal = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.18 },
+  transition: { duration: 0.7 },
 };
 
-export default About;
+export default function About() {
+  return (
+    <div className="inner-page about-page">
+      <section className="about-hero">
+        <motion.div
+          className="about-hero__copy"
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75 }}
+        >
+          <span className="chapter-label chapter-label--ink">OUR WORKSHOP</span>
+          <h1>作ることと、<br />奏でること。</h1>
+          <p>どちらも、石垣島の暮らしから始まります。</p>
+        </motion.div>
+        <img src="/images/ohmine/ishigaki-workshop-hero.png" alt="石垣島の木造工房で布を仕立てる様子" />
+      </section>
+
+      <motion.section className="about-statement" {...reveal}>
+        <p className="about-statement__index">OH!! MINE<br />ISHIGAKI / OKINAWA</p>
+        <h2>
+          島で受け継がれてきたものを、<br />暮らしのすぐそばへ。
+        </h2>
+        <p className="about-statement__body">
+          強い日差し、潮を含んだ風、赤瓦の家並み。Oh!! Mineは、石垣島で感じる色と手ざわりを、
+          日々使える布の道具と、三線に触れる時間にして届けます。飾り立てるのではなく、
+          素材の表情と作り手の手跡が静かに残ることを大切にしています。
+        </p>
+      </motion.section>
+
+      <section className="about-chapters">
+        <motion.article className="about-chapter about-chapter--indigo" {...reveal}>
+          <div>
+            <span>01</span>
+            <p>ISLAND CRAFT</p>
+          </div>
+          <img src="/images/ohmine/product-still.png" alt="藍色の布小物と島の素材" />
+          <div className="about-chapter__copy">
+            <h2>使いながら、<br />自分の色に育つもの。</h2>
+            <p>
+              ミンサーや紅型の意匠、丈夫なデニムや布地。一点ずつ柄の出方を見ながら、
+              長く使える形に仕立てています。
+            </p>
+            <Link to="/collection" className="editorial-link editorial-link--light">
+              商品を見る <ArrowRight size={16} />
+            </Link>
+          </div>
+        </motion.article>
+
+        <motion.article className="about-chapter about-chapter--vermilion" {...reveal}>
+          <div>
+            <span>02</span>
+            <p>SANSHIN SCHOOL</p>
+          </div>
+          <img src="/images/ohmine/sanshin-vermilion.png" alt="石垣島で沖縄の三線を奏でる人" />
+          <div className="about-chapter__copy">
+            <h2>一音ずつ、<br />島の歌に近づく。</h2>
+            <p>
+              三線を初めて持つ方から、島唄を深めたい方まで。それぞれの歩幅に合わせて、
+              音をつなぐ時間をつくります。
+            </p>
+            <Link to="/shamisen" className="editorial-link editorial-link--light">
+              三線教室を見る <ArrowRight size={16} />
+            </Link>
+          </div>
+        </motion.article>
+      </section>
+
+      <motion.section className="about-belief" {...reveal}>
+        <span className="chapter-label chapter-label--ink">OUR BELIEF</span>
+        <h2>いつの世までも、という願い。</h2>
+        <p>
+          ミンサー織りの五つと四つの絣には、「いつの世までも末永く」という想いが重ねられています。
+          手にした品も、覚えた一曲も、その人の暮らしの中で長く残っていくものでありますように。
+        </p>
+      </motion.section>
+    </div>
+  );
+}
